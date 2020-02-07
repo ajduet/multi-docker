@@ -1,0 +1,34 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "nginx",
+      "image": "ajduet/complex-nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "api"]
+    },
+    {
+      "name": "api",
+      "image": "ajduet/complex-api",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "ajduet/complex-worker",
+      "essential": false
+    },
+    {
+      "name": "client",
+      "image": "ajduet/complex-client",
+      "hostname": "client",
+      "essential": false
+    }
+  ]
+}
