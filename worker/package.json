@@ -1,0 +1,17 @@
+{
+  "name": "worker",
+  "version": "1.0.0",
+  "description": "fibonacci calculator worker",
+  "main": "index.js",
+  "author": "August Duet",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "nodemon": "^2.0.2",
+    "redis": "^2.8.0"
+  },
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon"
+  }
+}

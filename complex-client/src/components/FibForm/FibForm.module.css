@@ -1,0 +1,14 @@
+.numberField {
+  font-size: 1.3em;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.primaryButton {
+  font-size: 1.3em;
+  padding: 10px;
+  background-color: rgb(50, 50, 206);
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 5px;
+}
