@@ -1,0 +1,20 @@
+language: generic
+sudo: require
+services:
+  - docker
+before_install:
+  - docker build -t ajduet/react-test -f ./complex-client/Dockerfile.dev ./complex-client/
+
+scripts:
+  - docker run -e CI=true ajduet/react-test npm test
+
+after_success:
+  - docker build -t ajduet/complex-client ./complex-client/
+  - docker build -t ajduet/complex-api ./api
+  - docker build -t ajduet/complex-nginx ./nginx
+  - docker build -t ajduet/complex-worker ./worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push ajduet/complex-client
+  - docker push ajduet/complex-api
+  - docker push ajduet/complex-worker
+  - docker push ajduet/complex-nginx
